@@ -10,7 +10,7 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $table = "restaurants";
-    protected $filltable = [ 
+    protected $fillable = [ 
         "name"
     ];
 }

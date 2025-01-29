@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         // use the factory create to hydrate the table with fake entries
 
-        Restaurant::factory(1000)->create();
+        Restaurant::factory(3)->create();
         
         Category::factory(10)->create();
 
