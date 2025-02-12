@@ -13,6 +13,15 @@
                     <label for="name" class="form-label">Nom :</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="Nom">
                 </div>
+                <div class="mb-3">
+                    <label for="restaurant_id" class="form-label">Restaurant :</label>
+                    <select id="restaurant_id" name="restaurant_id" class="form-select" required>
+                        <option value="">Sélectionnez un restaurant</option>
+                        @foreach ($restaurants as $restaurant)
+                            <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
         </div>

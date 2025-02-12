@@ -7,8 +7,8 @@
 
             <a href="{{ route('restaurants.create') }}" class="btn btn-primary mb-4">Créer un restaurant</a>
 
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered rounded-2 table-sm">
+            <div class="table-responsive rounded-3">
+                <table class="table table-hover table-bordered table-sm">
                     <thead class="table-light">
                         <tr>
                             <th class="col-1 text-center">ID</th>

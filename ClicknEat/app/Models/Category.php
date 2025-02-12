@@ -13,4 +13,12 @@ class Category extends Model
     protected $fillable = [ 
         "name"
     ];
+
+    public function restaurant() {
+        return $this->belongsTo(Restaurant::class);
+    }
+
+    public function items() {
+        return $this->hasMany(Item::class);
+    }
 }

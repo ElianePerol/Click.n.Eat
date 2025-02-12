@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
+
+            // foreignId pour créer son propre nom de colonne, plutôt que foreignIdFor qui génère un nom automatiquement
+            $table->foreignId('restaurant_id')->constrained('restaurants')->onDelete('cascade');
         });
     }
 

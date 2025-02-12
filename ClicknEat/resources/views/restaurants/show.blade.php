@@ -29,6 +29,27 @@
                 </li>
             </ul>
             
+            <div class="table-responsive rounded-3 mt-4">
+                <table class="table table-hover table-bordered table-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="col-1 text-center">Catégories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($restaurant->categories as $category)
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <a href="{{ route('categories.show', $category->id) }}" title="Voir la catégorie">
+                                        {{ $category->name }}
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 @endsection

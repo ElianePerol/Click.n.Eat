@@ -5,14 +5,15 @@
         <div class="col-8">
             <h1 class="mb-4">Catégories</h1>
 
-            <a href="{{ route('categories.create') }}" class="btn btn-primary mb-4">Créer une catégorie d'article</a>
+            <a href="{{ route('categories.create') }}" class="btn btn-primary mb-4">Créer une catégorie d'articles</a>
 
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered rounded-2 table-sm">
+            <div class="table-responsive rounded-3">
+                <table class="table table-hover table-bordered table-sm">
                     <thead class="table-light">
                         <tr>
                             <th class="col-1 text-center">ID</th>
                             <th class="col-4 text-center">Nom</th>
+                            <th class="col-4 text-center">Restaurant</th>
                             <th class="col-3 text-center">Actions</th>
                         </tr>
                     </thead>
@@ -21,6 +22,10 @@
                             <tr>
                                 <td class="align-middle text-center">{{ $category->id }}</td>
                                 <td class="align-middle">{{ $category->name }}</td>
+                                <td class="align-middle">
+                                    <a href="{{ route('restaurants.show', $category->restaurant->id)}}" title="Voir le restaurant">
+                                    {{ $category->restaurant->name }}</a>
+                                </td>
                                 <td class="align-middle">
                                     <div class="d-flex align-items-center justify-content-center gap-3">
                                         <a href="{{ route('categories.show', $category->id) }}" class="btn btn-outline-info btn-sm">Voir</a>

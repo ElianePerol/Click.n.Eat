@@ -11,6 +11,11 @@ class Restaurant extends Model
 
     protected $table = "restaurants";
     protected $fillable = [ 
-        "name"
+        "name",
+        "restaurant_id"
     ];
+
+    public function categories() {
+        return $this->hasMany(Category::class);
+    }
 }

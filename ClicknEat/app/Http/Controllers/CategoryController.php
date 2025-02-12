@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Restaurant;
 
 class CategoryController extends Controller
 {
@@ -14,18 +15,33 @@ class CategoryController extends Controller
         // $categories = Category::all();
         // dd($categories);
 
-        return view('categories.index', [
-            'categories' => Category::all()
+        return view(
+            'categories.index', 
+            ['categories' => Category::with('restaurant')->get()
+
+            // all() génère beaucoup plus de requêtes (voir debugbar)
+            // 'categories' => Category::all()
         ]);
     }
 
     public function create() {
-        return view('categories.create');
+        return view(
+            'categories.create', 
+            ['restaurants' => Restaurant::all()]);
     }
 
+    // enregistre le create
     public function store(Request $request) {
         // dd($request);
-        Category::create($request->all());
+        // Category::create($request->all());
+
+        $category = new Category();
+
+        $category->name = $request->get('name');
+        $category->restaurant_id = $request->get('restaurant_id');
+        
+        $category->save();
+        
         return redirect()->route('categories.index');
     }
 
@@ -37,16 +53,20 @@ class CategoryController extends Controller
 
     public function edit($id) {
         return view('categories.edit', [
-            'category' => Category::findOrFail($id)
+            'category' => Category::findOrFail($id),
+            'restaurants' => Restaurant::all()
         ]);
     }
 
+    // enregistre le edit
     public function update(Request $request, $id) {
-        $Category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         // dd($Category);
 
-        $Category->name = $request->get('name');
-        $Category->save();
+        $category->name = $request->get('name');
+        $category->restaurant_id = $request->get('restaurant_id');
+
+        $category->save();
 
         return redirect()->route('categories.index');
     }

@@ -14,6 +14,18 @@
                     <label for="name" class="form-label">Nom :</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="Nom" value="{{ $category->name }}">
                 </div>
+                <div class="mb-3">
+                    <label for="restaurant_id" class="form-label">Restaurant :</label>
+                    <select id="restaurant_id" name="restaurant_id" class="form-select" required>
+                        @foreach($restaurants as $restaurant)
+                            @if($restaurant->id == $category->restaurant->id)
+                                <option value="{{ $restaurant->id }}" selected="selected">{{ $restaurant->name }}</option>
+                            @else
+                                <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
         </div>
