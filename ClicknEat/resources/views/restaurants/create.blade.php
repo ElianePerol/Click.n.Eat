@@ -124,43 +124,30 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-6">
-                <h1 class="mb-4">Création restaurant</h1>
-
-                <a href="{{ route('restaurants.index') }}" class="btn btn-secondary mb-4">Retour à la liste</a>
-
-                <form action="{{ route('restaurants.store') }}" method="POST" class="border p-4 rounded-2 shadow-sm">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nom :</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Nom">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                </form>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Créer un nouveau restaurant</h4>
-                            <a href="{{ route('restaurants.index') }}" class="btn mb-3 btn-rounded btn-primary">Retour à la liste</a>
-                            <div class="basic-form">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-default" placeholder="Input Default">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-flat" placeholder="Input Flat ">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control input-rounded" placeholder="Input Rounded">
-                                    </div>
-                                </form>
+        <div class="content-body">
+            <div class="container-fluid col-8">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <a href="{{ route('restaurants.index') }}" class="btn mb-3 btn-rounded btn-secondary">Retour à la liste</a>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">Créer un nouveau restaurant</h4>
+                                
+                                <div class="basic-form">
+                                    <form action="{{ route('restaurants.store') }}" method="POST" >
+                                        @csrf
+                                        <label for="name" class="form-label">Nom :</label>
+                                        <div class="form-group">
+                                            <input type="text" id="name" name="name" class="form-control input-rounded" placeholder="Nom du restaurant">
+                                        </div>
+                                        <button type="submit" class="btn mb-1 btn-rounded btn-primary">Envoyer</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         <!--**********************************
             Content body end

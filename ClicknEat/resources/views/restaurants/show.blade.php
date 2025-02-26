@@ -124,55 +124,54 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-4">
-                <h1 class="mb-4">Restaurant</h1>
-                
-                <div class="mb-4">
-                    <a href="{{ route('restaurants.index') }}" class="btn btn-secondary mb-2 me-2">Retour à la liste</a>
-                    <a href="{{ route('restaurants.create') }}" class="btn btn-primary mb-2">Créer un restaurant</a>
-                </div>
+        <div class="content-body">
+            <div class="container-fluid col-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-7">
+                            <a href="{{ route('restaurants.create') }}" class="btn mb-3 mr-3 btn-rounded btn-primary">Créer un restaurant</a>
+                            <a href="{{ route('restaurants.index') }}" class="btn mb-3 btn-rounded btn-secondary">Retour à la liste</a>
+                            
+                            <div class="card text-left">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Restaurant : {{ $restaurant->name }}</h5>
+                                    <ul>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">ID :</span>
+                                            <span>{{ $restaurant->id }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Créé le :</span>
+                                            <span class="text-muted">{{ $restaurant->created_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold">Mis à jour le :</span>
+                                            <span class="text-muted">{{ $restaurant->updated_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-rounded btn-outline-warning" href="{{ route('restaurants.edit', $restaurant->id) }}">Modifier</a>
+                                </div>
+                            </div>
 
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">ID :</span>
-                        <span>{{ $restaurant->id }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Nom :</span>
-                        <span>{{ $restaurant->name }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Créé le :</span>
-                        <span class="text-muted">{{ $restaurant->created_at->format('d M Y, H:i') }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Mis à jour le :</span>
-                        <span class="text-muted">{{ $restaurant->updated_at->format('d M Y, H:i') }}</span>
-                    </li>
-                </ul>
-                
-                <div class="table-responsive rounded-3 mt-4">
-                    <table class="table table-hover table-bordered table-sm">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="col-1 text-center">Catégories</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($restaurant->categories as $category)
-                                <tr>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('categories.show', $category->id) }}" title="Voir la catégorie">
-                                            {{ $category->name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            <div class="card text-left">
+                                <div class="card-body pb-0">
+                                    <h5 class="card-title mb-3">Catégories :</h5>
+                                    <ul>
+                                        @foreach ($restaurant->categories as $category)
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <a href="{{ route('categories.show', $category->id) }}" class="btn mb-1 btn-rounded btn-outline-info" title="Voir la catégorie">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    </li>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!--**********************************

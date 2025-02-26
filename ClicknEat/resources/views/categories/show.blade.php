@@ -124,61 +124,60 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-4">
-                <h1 class="mb-4">Catégorie</h1>
-                
-                <div class="mb-4">
-                    <a href="{{ route('categories.index') }}" class="btn btn-secondary mb-2 me-2">Retour à la liste</a>
-                    <a href="{{ route('categories.create') }}" class="btn btn-primary mb-2">Créer une catégorie d'article</a>
-                </div>
+        <div class="content-body">
+            <div class="container-fluid col-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-7">
+                            <a href="{{ route('categories.create') }}" class="btn mb-3 mr-3 btn-rounded btn-primary">Créer une catégorie</a>
+                            <a href="{{ route('categories.index') }}" class="btn mb-3 btn-rounded btn-secondary">Retour à la liste</a>
+                            
+                            <div class="card text-left">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Catégorie : {{ $category->name }}</h5>
+                                    <ul>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Restaurant :</span>
+                                            <a href="{{ route('restaurants.show', $category->restaurant->id) }}" class="btn mb-1 btn-rounded btn-outline-info" title="Voir le restaurant">
+                                                {{ $category->restaurant->name }}
+                                            </a>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">ID :</span>
+                                            <span>{{ $category->id }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Créé le :</span>
+                                            <span class="text-muted">{{ $category->created_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold">Mis à jour le :</span>
+                                            <span class="text-muted">{{ $category->updated_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-rounded btn-outline-warning" href="{{ route('categories.edit', $category->id) }}">Modifier</a>
+                                </div>
+                            </div>
 
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">ID :</span>
-                        <span>{{ $category->id }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Nom :</span>
-                        <span>{{ $category->name }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Restaurant :</span>
-                        <a href="{{ route('restaurants.show', $category->restaurant->id) }}" title="Voir le restaurant">
-                            <span class="text-muted">{{ $category->restaurant->name }}</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Créé le :</span>
-                        <span class="text-muted">{{ $category->created_at->format('d M Y, H:i') }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Mis à jour le :</span>
-                        <span class="text-muted">{{ $category->updated_at->format('d M Y, H:i') }}</span>
-                    </li>
-                </ul>
+                            <div class="card text-left">
+                                <div class="card-body pb-0">
+                                    <h5 class="card-title mb-3">Articles :</h5>
+                                    <ul>
+                                        @foreach ($category->items as $item)
+                                            <li class="d-flex justify-content-between align-items-center">
+                                                <a href="{{ route('items.show', $item->id) }}" class="btn mb-1 btn-rounded btn-outline-info" title="Voir l'article'">
+                                                    {{ $item->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    </li>
+                                </div>
+                            </div>
 
-                <div class="table-responsive rounded-3 mt-4">
-                    <table class="table table-hover table-bordered table-sm">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="col-1 text-center">Articles</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($category->items as $item)
-                                <tr>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('items.show', $item->id) }}" title="Voir l'article'">
-                                            {{ $item->name }}
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
         </div>
         <!--**********************************

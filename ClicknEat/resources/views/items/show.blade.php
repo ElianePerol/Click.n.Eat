@@ -124,40 +124,44 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-4">
-                <h1 class="mb-4">Article</h1>
-                
-                <div class="mb-4">
-                    <a href="{{ route('items.index') }}" class="btn btn-secondary mb-2 me-2">Retour à la liste</a>
-                    <a href="{{ route('items.create') }}" class="btn btn-primary mb-2">Créer un article</a>
-                </div>
+        <div class="content-body">
+            <div class="container-fluid col-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-7">
+                            <a href="{{ route('items.create') }}" class="btn mb-3 mr-3 btn-rounded btn-primary">Créer un article</a>
+                            <a href="{{ route('items.index') }}" class="btn mb-3 btn-rounded btn-secondary">Retour à la liste</a>
+                            
+                            <div class="card text-left">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Article : {{ $item->name }}</h5>
+                                    <ul>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Catégorie :</span>
+                                            <a href="{{ route('categories.show', $item->category->id) }}" class="btn mb-1 btn-rounded btn-outline-info" title="Voir la catégorie">
+                                                {{ $item->category->name }}
+                                            </a>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">ID :</span>
+                                            <span>{{ $item->id }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Créé le :</span>
+                                            <span class="text-muted">{{ $item->created_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold">Mis à jour le :</span>
+                                            <span class="text-muted">{{ $item->updated_at->format('d M Y, H:i') }}</span>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-rounded btn-outline-warning" href="{{ route('items.edit', $item->id) }}">Modifier</a>
+                                </div>
+                            </div>
 
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">ID :</span>
-                        <span>{{ $item->id }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Nom :</span>
-                        <span>{{ $item->name }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Catégorie :</span>
-                        <a href="{{ route('categories.show', $item->category->id) }}" title="Voir la catégorie">
-                            <span class="text-muted">{{ $item->category->name }}</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Créé le :</span>
-                        <span class="text-muted">{{ $item->created_at->format('d M Y, H:i') }}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">Mis à jour le :</span>
-                        <span class="text-muted">{{ $item->updated_at->format('d M Y, H:i') }}</span>
-                    </li>
-                </ul>
-                
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!--**********************************

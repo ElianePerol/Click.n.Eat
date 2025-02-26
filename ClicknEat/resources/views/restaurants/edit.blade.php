@@ -124,23 +124,33 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        <div class="container py-5 d-flex justify-content-center">
-            <div class="col-6">
-                <h1 class="mb-4">Modification restaurant</h1>
-
-                <a href="{{ route('restaurants.index') }}" class="btn btn-secondary mb-4">Retour à la liste</a>
-
-                <form action="{{ route('restaurants.update', $restaurant->id) }}" method="POST" class="border p-4 rounded-2 shadow-sm">
-                    @csrf
-                    @method('put')
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nom :</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Nom" value="{{ $restaurant->name }}">
+        <div class="content-body">
+            <div class="container-fluid col-8">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <a href="{{ route('restaurants.index') }}" class="btn mb-3 btn-rounded btn-secondary">Retour à la liste</a>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">Modifier le restaurant : {{ $restaurant->name }}</h4>
+                                
+                                <div class="basic-form">
+                                    <form action="{{ route('restaurants.update', $restaurant->id) }}" method="POST" >
+                                        @csrf
+                                        @method('put')
+                                        <label for="name" class="form-label">Nom :</label>
+                                        <div class="form-group">
+                                            <input type="text" id="name" name="name" class="form-control input-rounded" placeholder="Nouveau nom du restaurant">
+                                        </div>
+                                        <button type="submit" class="btn mb-1 btn-rounded btn-primary">Envoyer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                </form>
+                </div>
             </div>
         </div>
+
         <!--**********************************
             Content body end
         ***********************************-->
