@@ -98,6 +98,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   box-sizing: border-box; }
 
 html {
+  height: 100%;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -7308,6 +7309,8 @@ body {
   max-width: 100%; }
 
 #main-wrapper {
+  flex: 1;
+  display: flex;
   opacity: 0;
   transition: all 0.25s ease-in;
   overflow: hidden;
@@ -8130,6 +8133,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   top: 0.625rem; }
 
 .content-body {
+  flex: 1;
   margin-left: 15.1875rem;
   z-index: 0; }
   @media only screen and (min-width: 1200px) and (max-width: 1350px) {
