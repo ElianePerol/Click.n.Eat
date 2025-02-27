@@ -131,7 +131,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Restaurants TEST 123</h3>
+                                <h3 class="card-title text-white">Restaurants</h3>
                                 <div class="d-inline-block">
                                     <h2 class="text-white">4565</h2>
                                     <a href="{{ route('restaurants.index') }}"><p class="text-white mb-0">Voir</p></a>
