@@ -16,4 +16,5 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}
-            sudo git pull
+            sudo git fetch --all
+            sudo git reset --hard origin/main
