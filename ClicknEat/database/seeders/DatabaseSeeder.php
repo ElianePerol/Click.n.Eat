@@ -16,19 +16,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        
         // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        // Manually adds one line in the table
-        // Restaurant::create([
-        //     'name' => 'Punjab'
-        // ]);
-
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
+            
+            // Manually adds one line in the table
+            // Restaurant::create([
+                //     'name' => 'Punjab'
+                // ]);
+                
         // use the factory create to hydrate the table with fake entries
+        User::factory(10)->create();
 
         Restaurant::factory(3)->create();
         
