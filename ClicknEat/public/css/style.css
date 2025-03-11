@@ -201,7 +201,17 @@ a {
   -webkit-text-decoration-skip: objects; }
   a:hover {
     color: #2e28f6;
-    text-decoration: underline; }
+    text-decoration: underline !important; }
+
+.like-a {
+  color: #76838f !important;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
+  .like-a:hover {
+    color: #2e28f6 !important;
+    text-decoration: underline;
+    cursor: pointer; }
 
 a:not([href]):not([tabindex]) {
   color: inherit;

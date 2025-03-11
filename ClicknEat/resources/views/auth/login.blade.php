@@ -21,22 +21,40 @@
                                         <!-- Email Address -->
                                         <div class="form-group">
                                             {{-- <x-input-label for="email" :value="__('Email')" /> --}}
-                                            <x-text-input id="email" class="form-control" placeholder="&nbsp Email" 
+                                            <x-text-input id="email" class="form-control p-3" placeholder="Email" 
                                                             type="email" name="email" :value="old('email')" 
                                                             required autofocus autocomplete="username" />
-                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                            @error('email')
+                                            <ul class="text-sm text-red-600 space-y-1">
+                                                @if ($message === 'The email field is required.')
+                                                    <li class="mt-2">Veuillez entrer votre adresse email.</li>
+                                                @elseif (str_contains($message, 'valid email address'))
+                                                    <li class="mt-2">Veuillez entrer une adresse email valide.</li>
+                                                @else
+                                                    <li class="mt-2">{{ $message }}</li>
+                                                @endif
+                                            </ul>
+                                            @enderror
                                         </div>
 
                                         <!-- Password -->
                                         <div class="form-group">
                                             {{-- <x-input-label for="password" :value="__('Password')" /> --}}
 
-                                            <x-text-input id="password" class="form-control" placeholder="&nbsp Mot de passe"
+                                            <x-text-input id="password" class="form-control p-3" placeholder="Mot de passe"
                                                             type="password"
                                                             name="password"
                                                             required autocomplete="current-password" />
 
-                                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                            @error('password')
+                                            <ul class="text-sm text-red-600 space-y-1">
+                                                @if ($message === 'The password field is required.')
+                                                    <li class="mt-2">Veuillez entrer votre mot de passe.</li>
+                                                @else
+                                                    <li class="mt-2">{{ $message }}</li>
+                                                @endif
+                                            </ul>
+                                            @enderror
                                         </div>
 
                                         <!-- Remember Me -->

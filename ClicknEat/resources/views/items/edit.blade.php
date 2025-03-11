@@ -30,37 +30,29 @@
                         <span class="toggle-icon"><i class="icon-menu"></i></span>
                     </div>
                 </div>
-                <div class="header-left">
-                    <div class="input-group icons">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
-                        </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
-                        <div class="drop-down animated flipInX d-md-none">
-                            <form action="#">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <div class="header-right">
                     <ul class="clearfix">                        
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="{{ asset('images/user/1.png') }}" height="40" width="40" alt="">
+                            <div class="c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="text-dark">Mon compte</span>
                             </div>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="{{ asset('app-profile.html"><i class="icon-user') }}"></i> <span>Profile</span></a>
+                                            <span>{{ Auth::user()->name }}</span>
                                         </li>
-                                        <hr class="my-2">
                                         <li>
-                                            <a href="{{ asset('page-lock.html"><i class="icon-lock') }}"></i> <span>Lock Screen</span></a>
+                                            <a href="{{ asset('app-profile.html"') }}" ><i class="icon-user"></i><span>Profile</span></a>
                                         </li>
-                                        <li><a href="{{ asset('page-login.html"><i class="icon-key') }}"></i> <span>Logout</span></a></li>
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                                @csrf
+                                                <button type="submit" class="bg-transparent border-0 p-0">
+                                                    <i class="icon-key"></i> <span class="like-a bg-transparent">Logout</span>
+                                                </button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,7 +131,7 @@
                                         @method('put')
                                         <label for="name" class="form-label">Nom :</label>
                                         <div class="form-group">
-                                            <input type="text" id="name" name="name" class="form-control input-rounded" placeholder="Nouveau nom de l'article'">
+                                            <input type="text" id="name" name="name" class="form-control input-rounded" placeholder="Nouveau nom de l'article">
                                         </div>
                                         <label for="cost" class="form-label">Coût d'achat en centimes :</label>
                                         <div class="form-group">

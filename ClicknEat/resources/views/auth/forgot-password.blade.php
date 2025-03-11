@@ -13,7 +13,7 @@
                                 <h4 class="text-center">Click'n Eat</h4>
 
                                 <div class="mb-4 text-sm text-gray-600">
-                                    Mot de passe oublié ? Pas de soucis, saisissez votre adresse e-mail, et nous vous enverrons un lien pour en créer un nouveau..
+                                    Mot de passe oublié ? Pas de soucis, saisissez votre adresse e-mail, et nous vous enverrons un lien pour en créer un nouveau.
                                 </div>
 
                                 <!-- Session Status -->
@@ -25,7 +25,7 @@
                                     <!-- Email Address -->
                                     <div>
                                         {{-- <x-input-label for="email" :value="__('Email')" /> --}}
-                                        <x-text-input id="email" class="form-control" placeholder="&nbsp Email" 
+                                        <x-text-input id="email" class="form-control p-3" placeholder="Email" 
                                                         type="email" name="email" :value="old('email')" required autofocus />
                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                     </div>
